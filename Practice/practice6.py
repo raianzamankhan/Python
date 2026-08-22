@@ -21,7 +21,7 @@ def cubic(Tsample,a,b,c,d):
 
 popt_lin, _ = curve_fit(linear, Tsample, Tstandard, p0=[1,1])
 popt_quad, _ = curve_fit(quadratic, Tsample, Tstandard, p0=[1,1,1])
-popt_cub, _ = curve_fit(cubic, Tsample, Tstandard, )
+popt_cub, _ = curve_fit(cubic, Tsample, Tstandard, p0=[1,1,1,1])
 
 r2_lin = 1 - np.sum((Tstandard-linear(Tsample, *popt_lin))**2)/np.sum((Tstandard-np.mean(Tstandard))**2)
 r2_quad = 1 - np.sum((Tstandard-quadratic(Tsample, *popt_quad))**2)/np.sum((Tstandard-np.mean(Tstandard))**2)
